@@ -11,7 +11,7 @@
         event.preventDefault();
         const clickedElement = this;
         console.log('Link was clicked!');
-        console.log("event = ", event);
+        console.log('event = ', event);
 
 
         /* [DONE] remove class 'active' from all article links  */
@@ -38,14 +38,14 @@
 
         /* get 'href' attribute from the clicked link */
 
-        const articleSelector = clickedElement.getAttribute("href");
-        console.log("Link was clicked!");
+        const articleSelector = clickedElement.getAttribute('href');
+        console.log('Link was clicked!');
 
 
         /* find the correct article using the selector (value of 'href' attribute) */
 
         const targetArticle = document.querySelector(articleSelector);
-        console.log("Article was opened!");
+        console.log('Article was opened!');
 
 
         /* add class 'active' to the correct article */
@@ -53,13 +53,14 @@
         targetArticle.classList.add('active');
         console.log('targetArticle:', targetArticle);
 
-    }
+    };
 
     const optArticleSelector = '.post',
         optTitleSelector = '.post-title',
         optTitleListSelector = '.titles';
 
     function generateTitleLinks() {
+        console.log('funkction generateTitleLinks');
 
         // remove contents of titleList 
         const titleList = document.querySelector(optTitleListSelector);
@@ -71,7 +72,7 @@
         for (let article of articles) {
 
             // get the article id 
-            const articleId = article.getAttribute("id");
+            const articleId = article.getAttribute('id');
 
             // find the title element
             const articleTitle = article.querySelector(optTitleSelector).innerHTML;
@@ -79,7 +80,7 @@
             // create HTML of the link 
 
             const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-            console.log("code of HTML link")
+            console.log('code of HTML link');
             // insert link into titleList 
 
             // insert link into html variable 
@@ -94,7 +95,7 @@
 
 
     const links = document.querySelectorAll('.titles a');
-    console.log("links", links)
+    console.log('links:', links);
 
     for (let link of links) {
         link.addEventListener('click', titleClickHandler);
