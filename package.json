@@ -11,6 +11,7 @@
     "test": "npm-run-all test:*",
     "test:html": "html-validate *.html",
     "test:js": "eslint js/",
+    "test:scss": "stylelint sass/",
     "build": "npm-run-all build:* test",
     "build:sass": "sass --style=compressed --no-source-map sass:css",
     "build-dev": "npm-run-all build-dev:sass",
@@ -25,7 +26,9 @@
   "devDependencies": {
     "browser-sync": "^2.27.9",
     "eslint": "^8.16.0",
-    "mkdirp": "^1.0.4"
+    "mkdirp": "^1.0.4",
+    "stylelint": "^14.8.5",
+    "stylelint-scss": "^4.2.0"
   },
   "dependencies": {
     "html-validate": "^6.7.1",
