@@ -325,9 +325,9 @@ const templates = {
       const linkHTML = templates.authorLink(linkHTMLData);
       console.log('generate HTML of the author link');
 
-      /* [NEW] check if this link is NOT already in allTags */
+      /* [NEW] check if this link is NOT already in allAuthors */
       if (!allAuthors[authorTags]) {
-        /* [NEW] add tag to allTags object */
+        /* [NEW] add tag to allAuthors object */
         allAuthors[authorTags] = 1;
       } else {
         allAuthors[authorTags]++;
