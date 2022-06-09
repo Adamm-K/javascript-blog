@@ -77,6 +77,10 @@ body {
   margin-left: 10px;
 }
 
+.tags li {
+  display: inline-block;
+}
+
 /* Authors */
 .authors li {
   margin-bottom: 12px;
@@ -102,23 +106,23 @@ body {
 }
 
 .tag-size-1 {
-  font-size: 10px;
-}
-
-.tag-size-2 {
   font-size: 15px;
 }
 
+.tag-size-2 {
+  font-size: 19px;
+}
+
 .tag-size-3 {
-  font-size: 20px;
+  font-size: 23px;
 }
 
 .tag-size-4 {
-  font-size: 25px;
+  font-size: 27px;
 }
 
 .tag-size-5 {
-  font-size: 30px;
+  font-size: 31px;
 }
 
 /*# sourceMappingURL=style.css.map */

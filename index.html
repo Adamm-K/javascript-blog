@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JS - blog</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-2" data-tags="plane sky fly" data-author="Theo Tabby">
+              <article class="post" id="article-2" data-tags="cat sky wegetables" data-author="Theo Tabby">
                 <h3 class="post-title">Article 2</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -88,7 +88,7 @@
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-6" data-tags="potato wegetables onion" data-author="George Tuxedo">
+              <article class="post" id="article-6" data-tags="music wegetables onion" data-author="George Tuxedo">
                 <h3 class="post-title">Article 6</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -102,7 +102,7 @@
                   </ul>
                 </div>
               </article>
-              <article class="post" id="article-7" data-tags="computer keyboard mouse" data-author="Kitty Toebean">
+              <article class="post" id="article-7" data-tags="music keyboard wegetables" data-author="Kitty Toebean">
                 <h3 class="post-title">Article 7</h3>
                 <p class="post-author"></p>
                 <div class="post-content">
@@ -162,15 +162,15 @@
             <aside class="sidebar">
               <h2 class="section-title">Tags</h2>
               <ul class="list tags">
+                <!-- <li></li>
                 <li></li>
                 <li></li>
                 <li></li>
-                <li></li>
-                <li></li>
+                <li></li> -->
               </ul>
               <h2 class="section-title">Authors</h2>
               <ul class="list authors">
-                <li>
+               <!-- <li>
                   <a href="#">
                     <span class="author-name"></span>
                   </a>
@@ -189,12 +189,27 @@
                   <a href="#">
                     <span class="author-name"></span>
                   </a>
-                </li>
+                </li> -->
               </ul>
             </aside>
           </main>
         </div>
       </div>
+      <script id="template-article-link" type="text/x-handlebars-template">
+        <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
+      </script>
+      <script id="template-tag-link" type="text/x-handlebars-template">
+        <li><a href="#tag-{{ title }}"><span>{{ title }}</span></a></li>
+      </script>
+      <script id="template-author-link" type="text/x-handlebars-template">
+        <a href="#author-{{ title }}"><span>{{ title }}</span></a>
+      </script>
+      <script id="template-tagcloud-link" type="text/x-handlebars-template">
+        {{#each tags}}
+        <li class="{{className}}"> <a href="#tag-{{ tag }}">{{ tag }} </a></li>
+        {{/each}}
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
       <script src="js/script.js"></script>
 </body>
 </html>
