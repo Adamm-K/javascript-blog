@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS - blog</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="#">
 </head>
 <body>
     <div class="blog">
@@ -199,14 +200,19 @@
         <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
       </script>
       <script id="template-tag-link" type="text/x-handlebars-template">
-        <li><a href="#tag-{{ title }}"><span>{{ title }}</span></a></li>
+        <li><a href="#tag-{{ id }}"><span>{{ title }}</span></a></li>
       </script>
       <script id="template-author-link" type="text/x-handlebars-template">
-        <a href="#author-{{ title }}"><span>{{ title }}</span></a>
+        <a href="#author-{{ id }}"><span>{{ title }}</span></a>
       </script>
       <script id="template-tagcloud-link" type="text/x-handlebars-template">
         {{#each tags}}
         <li class="{{className}}"> <a href="#tag-{{ tag }}">{{ tag }} </a></li>
+        {{/each}}
+      </script>
+      <script id="template-author-cloud-link" type="text/x-handlebars-template">
+        {{#each authors}}
+        <li><a href="#author-{{author}}">{{author}} ({{count}})</a></li>
         {{/each}}
       </script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>

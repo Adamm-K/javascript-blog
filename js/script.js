@@ -10,7 +10,8 @@ const templates = {
   articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
   tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
   authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
-  tagCloudLink: Handlebars.compile(document.querySelector('#template-tagcloud-link').innerHTML)
+  tagCloudLink: Handlebars.compile(document.querySelector('#template-tagcloud-link').innerHTML),
+  authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML)
 };
 
 {
@@ -325,6 +326,9 @@ const templates = {
       const linkHTML = templates.authorLink(linkHTMLData);
       console.log('generate HTML of the author link');
 
+      /* insert HTML of all the links into the tags wrapper */
+      articleAuthorSelector.innerHTML = linkHTML;
+
       /* [NEW] check if this link is NOT already in allAuthors */
       if (!allAuthors[authorTags]) {
         /* [NEW] add tag to allAuthors object */
@@ -334,33 +338,26 @@ const templates = {
       }
       console.log('allAuthors:', allAuthors);
 
-      /* insert HTML of all the links into the tags wrapper */
-      articleAuthorSelector.innerHTML = linkHTML;
-
-      /* find authors wrapper */
-      const authorlist = document.querySelector(optAuthorsListSelector);
-
-      const authorParams = calculateTagsParams(allAuthors);
-      console.log('tagsParams:', authorParams);
-
-      /* [NEW] create variable for all links HTML code*/
-      let allAuthorsHTML = '';
-
-      /* [NEW] START LOOP: for each author in allAuthors */
-      for (let author in allAuthors) {
-
-        const authorLinkHTML = '<li><a href="#author-' + author + '" class=' + calculateTagClass(allAuthors[author], authorParams) + '> ' + ' ' + author + ' '  + allAuthors[author]+ ' </a></li>';
-        console.log('authorLinkHTML:', authorLinkHTML);
-
-        /* [NEW] generate code of a link and add it to allAuthorsHTML */
-        allAuthorsHTML += authorLinkHTML;
-        console.log(allAuthorsHTML);
-      }
-
-      authorlist.innerHTML = allAuthorsHTML;
-
-    /* END LOOP: for every article: */
+      /* END LOOP: for every article: */
     }
+
+    /* find authors wrapper */
+    const authorList = document.querySelector(optAuthorsListSelector);
+
+    const authorParams = calculateTagsParams(allAuthors);
+    console.log('tagsParams:', authorParams);
+
+    /* [NEW] create variable for all links HTML code*/
+    const allAuthorsData = {authors: []};
+
+    /* [NEW] START LOOP: for each author in allAuthors */
+    for (let author in allAuthors) {
+      allAuthorsData.authors.push({
+        author: author,
+        count: allAuthors[author],
+      });
+    }
+    authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
   };
 
   generateAuthors();
